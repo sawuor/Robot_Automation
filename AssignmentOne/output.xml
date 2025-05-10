@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-04T13:25:29.167033" rpa="false" schemaversion="5">
+<suite id="s1" name="AssignmentOne" source="C:\Users\SHEILA\PycharmProjects\API_Automation\AssignmentOne">
+<suite id="s1-s1" name="CRUD" source="C:\Users\SHEILA\PycharmProjects\API_Automation\AssignmentOne\CRUD.Robot">
+<test id="s1-s1-t1" name="Get Test Case" line="10">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:30.363143" level="INFO">Creating Session using : alias=learner, url=https://postman-rest-api-learner.glitch.me/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>learner</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-04T13:25:30.362870" elapsed="0.000483"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:30.991725" level="INFO">GET Request : url=https://postman-rest-api-learner.glitch.me/info?1 
+ path_url=/info?1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-05-04T13:25:30.991988" level="INFO">GET Response : url=https://postman-rest-api-learner.glitch.me/info?1 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '37', 'etag': 'W/"25-Xqwo/6dp/X3uWqc0VJHdsdRW3Xg"', 'content-type': 'application/json; charset=utf-8', 'x-powered-by': 'Express', 'Accept-Ranges': 'bytes', 'Date': 'Sun, 04 May 2025 10:25:30 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-fjr990023-FJR, cache-fjr990023-FJR', 'X-Cache': 'MISS, MISS', 'X-Cache-Hits': '0, 0', 'X-Timer': 'S1746354330.830286,VS0,VE313'} 
+ body={"message":"You made a GET request!"} 
+ </msg>
+<msg time="2025-05-04T13:25:30.992124" level="INFO">C:\Users\SHEILA\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'postman-rest-api-learner.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-04T13:25:30.992617" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>learner</arg>
+<arg>/info?${INFO_ID}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-04T13:25:30.363707" elapsed="0.628976"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-05-04T13:25:30.994932" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-05-04T13:25:30.993830" elapsed="0.001244"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.text}</arg>
+<arg>made</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-05-04T13:25:30.996359" elapsed="0.001056"/>
+</kw>
+<status status="PASS" start="2025-05-04T13:25:30.361887" elapsed="0.635990"/>
+</test>
+<test id="s1-s1-t2" name="Post Test Case" line="16">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:31.002704" level="INFO">Creating Session using : alias=learner, url=https://postman-rest-api-learner.glitch.me/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>learner</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-04T13:25:31.002467" elapsed="0.000401"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:31.465161" level="INFO">POST Request : url=https://postman-rest-api-learner.glitch.me/info 
+ path_url=/info 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-05-04T13:25:31.465336" level="INFO">POST Response : url=https://postman-rest-api-learner.glitch.me/info 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '72', 'etag': 'W/"48-ehfYWK9dzE0Wkqa1Jg06VewaZT0"', 'content-type': 'application/json; charset=utf-8', 'x-powered-by': 'Express', 'Accept-Ranges': 'bytes', 'Date': 'Sun, 04 May 2025 10:25:30 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-fjr990033-FJR, cache-fjr990033-FJR', 'X-Cache': 'MISS, MISS', 'X-Cache-Hits': '0, 0', 'X-Timer': 'S1746354330.387249,VS0,VE231'} 
+ body={"message":"You made a POST request with the following data!","data":{}} 
+ </msg>
+<msg time="2025-05-04T13:25:31.465462" level="INFO">C:\Users\SHEILA\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'postman-rest-api-learner.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-04T13:25:31.466207" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>learner</arg>
+<arg>/info</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-04T13:25:31.003105" elapsed="0.463220"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-05-04T13:25:31.468493" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-05-04T13:25:31.466933" elapsed="0.001779"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.text}</arg>
+<arg>following</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-05-04T13:25:31.469447" elapsed="0.001951"/>
+</kw>
+<status status="PASS" start="2025-05-04T13:25:31.001780" elapsed="0.470166"/>
+</test>
+<test id="s1-s1-t3" name="Update Test Case" line="22">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:31.474706" level="INFO">Creating Session using : alias=learner, url=https://postman-rest-api-learner.glitch.me/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>learner</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-04T13:25:31.474250" elapsed="0.000822"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:31.936150" level="INFO">PUT Request : url=https://postman-rest-api-learner.glitch.me/info?1 
+ path_url=/info?1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-05-04T13:25:31.936306" level="INFO">PUT Response : url=https://postman-rest-api-learner.glitch.me/info?1 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '94', 'etag': 'W/"5e-slBJ/8fTUcqGrU2R/ITD5npcDcA"', 'content-type': 'application/json; charset=utf-8', 'x-powered-by': 'Express', 'Accept-Ranges': 'bytes', 'Date': 'Sun, 04 May 2025 10:25:31 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-fjr990023-FJR, cache-fjr990023-FJR', 'X-Cache': 'MISS, MISS', 'X-Cache-Hits': '0, 0', 'X-Timer': 'S1746354331.849947,VS0,VE236'} 
+ body={"message":"You made a PUT request to update id=undefined with the following data!","data":{}} 
+ </msg>
+<msg time="2025-05-04T13:25:31.936667" level="INFO">C:\Users\SHEILA\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'postman-rest-api-learner.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-04T13:25:31.937275" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>learner</arg>
+<arg>/info?${INFO_ID}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-04T13:25:31.475502" elapsed="0.461868"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-05-04T13:25:31.942732" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-05-04T13:25:31.941379" elapsed="0.001526"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.text}</arg>
+<arg>update</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-05-04T13:25:31.943405" elapsed="0.001402"/>
+</kw>
+<status status="PASS" start="2025-05-04T13:25:31.473212" elapsed="0.472095"/>
+</test>
+<test id="s1-s1-t4" name="Delete Test Case" line="28">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:31.947109" level="INFO">Creating Session using : alias=learner, url=https://postman-rest-api-learner.glitch.me/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>learner</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-04T13:25:31.946824" elapsed="0.000485"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-05-04T13:25:32.534290" level="INFO">DELETE Request : url=https://postman-rest-api-learner.glitch.me/info?1 
+ path_url=/info?1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-05-04T13:25:32.534434" level="INFO">DELETE Response : url=https://postman-rest-api-learner.glitch.me/info?1 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '63', 'etag': 'W/"3f-PeA5JFubHvDpBDQTd+p0Jcg8IhE"', 'content-type': 'application/json; charset=utf-8', 'x-powered-by': 'Express', 'Accept-Ranges': 'bytes', 'Date': 'Sun, 04 May 2025 10:25:31 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-fjr990025-FJR, cache-fjr990034-FJR', 'X-Cache': 'MISS, MISS', 'X-Cache-Hits': '0, 0', 'X-Timer': 'S1746354331.319119,VS0,VE363'} 
+ body={"message":"You made a DELETE request to delete id=undefined!"} 
+ </msg>
+<msg time="2025-05-04T13:25:32.534549" level="INFO">C:\Users\SHEILA\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'postman-rest-api-learner.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-04T13:25:32.535170" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>learner</arg>
+<arg>/info?${INFO_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-04T13:25:31.947603" elapsed="0.587637"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-05-04T13:25:32.537853" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-05-04T13:25:32.535769" elapsed="0.002376"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.text}</arg>
+<arg>request</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-05-04T13:25:32.539162" elapsed="0.001501"/>
+</kw>
+<status status="PASS" start="2025-05-04T13:25:31.946099" elapsed="0.595109"/>
+</test>
+<status status="PASS" start="2025-05-04T13:25:29.260737" elapsed="3.281637"/>
+</suite>
+<status status="PASS" start="2025-05-04T13:25:29.168875" elapsed="3.374636"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="AssignmentOne" id="s1" pass="4" fail="0" skip="0">AssignmentOne</stat>
+<stat name="CRUD" id="s1-s1" pass="4" fail="0" skip="0">AssignmentOne.CRUD</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
